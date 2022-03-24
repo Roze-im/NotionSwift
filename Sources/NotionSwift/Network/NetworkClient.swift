@@ -205,12 +205,12 @@ public class DefaultNetworkClient: NetworkClient {
                 completeResult = .failure(.unsupportedResponseError)
             }
 
-            DispatchQueue.main.async {
-                guard let completeResult = completeResult else {
-                    fatalError("Something is wrong, no result!")
-                }
-                completed(completeResult)
+//            DispatchQueue.main.async {
+            guard let completeResult = completeResult else {
+                fatalError("Something is wrong, no result!")
             }
+            completed(completeResult)
+//            }
         }
         task.resume()
     }
